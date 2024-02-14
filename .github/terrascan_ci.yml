@@ -1,10 +1,8 @@
 name: Terrascan Scan
-
 on:
   push:
     branches:
     - main
-
 jobs:
   terrascan:
     runs-on: ubuntu-latest
