@@ -8,13 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Login to GitHub Registry
-        uses: actions/checkout@v2
-        with:
-          repository: 'mysticrenji/terraform-azcli'
-          ref: '1.0.1'
-          context: 'terraform-azcli'
-          fetch-depth: 1
       - name: Run Terrascan Scan
         uses: tenable/terrascan-action@v1
         with:
