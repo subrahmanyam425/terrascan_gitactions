@@ -2,7 +2,8 @@ name: Terrascan Scan
 
 on:
   push:
-    branches: [ main ]
+    branches:
+    - main
 
 jobs:
   terrascan:
