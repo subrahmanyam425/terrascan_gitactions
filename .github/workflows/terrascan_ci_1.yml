@@ -13,12 +13,3 @@ jobs:
         with:
           iac_type: terraform
           iac_dir: ${{ github.workspace }}
-          # sarif_upload: false  # Optionally upload results to Security tab
-          # Optional additional flags:
-          # - policy_path: "custom_policy.yaml"
-          # - severity: "high"
-      - name: Upload junit report
-        uses: actions/upload-artifact@v3
-        with:
-          name: terrascan-report
-          path: terrascan-results.xml
