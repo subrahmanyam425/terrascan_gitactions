@@ -1,4 +1,4 @@
-
+#testing1
 resource "aws_s3_bucket" "s3-bucket-lifecycle" {
 
   bucket = var.bucket_name
