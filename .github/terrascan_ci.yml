@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Terrascan Scan
-        uses: tenable/terrascan-action@v1
+        uses: tenable/terrascan-action
         with:
           iac_type: terraform
           iac_dir: ${{ github.workspace }}
