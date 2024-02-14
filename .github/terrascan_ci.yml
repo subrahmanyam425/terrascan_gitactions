@@ -2,12 +2,13 @@ name: Terrascan Scan
 on:
   push:
     branches:
-    - main
+      - main
 jobs:
   terrascan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout to current repository
+        uses: actions/checkout@v2
       - name: Run Terrascan Scan
         uses: tenable/terrascan-action
         with:
