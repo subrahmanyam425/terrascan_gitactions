@@ -1,8 +1,7 @@
 name: Terrascan Scan
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 jobs:
   terrascan:
     runs-on: ubuntu-latest
@@ -10,7 +9,7 @@ jobs:
       - name: checkout to current repository
         uses: actions/checkout@v2
       - name: Run Terrascan Scan
-        uses: tenable/terrascan-action
+        uses: tenable/terrascan-action@v1
         with:
           iac_type: terraform
           iac_dir: ${{ github.workspace }}
