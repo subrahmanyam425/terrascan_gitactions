@@ -1,0 +1,32 @@
+name: Terrascan Scan
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  terrascan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Registry
+        uses: actions/checkout@v2
+        with:
+          repository: 'mysticrenji/terraform-azcli'
+          ref: '1.0.1'
+          context: 'terraform-azcli'
+          fetch-depth: 1
+      - name: Run Terrascan Scan
+        uses: tenable/terrascan-action@v1
+        with:
+          iac_type: terraform
+          iac_dir: ${{ github.workspace }}/terraform
+          sarif_upload: true  # Optionally upload results to Security tab
+          # Optional additional flags:
+          # - policy_path: "custom_policy.yaml"
+          # - severity: "high"
+      - name: Upload junit report
+        uses: actions/upload-artifact@v3
+        with:
+          name: terrascan-report
+          path: terraform/terrascan-results.xml
