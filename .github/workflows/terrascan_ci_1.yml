@@ -13,7 +13,7 @@ jobs:
         with:
           iac_type: terraform
           iac_dir: ${{ github.workspace }}
-          sarif_upload: true  # Optionally upload results to Security tab
+          sarif_upload: false  # Optionally upload results to Security tab
           # Optional additional flags:
           # - policy_path: "custom_policy.yaml"
           # - severity: "high"
