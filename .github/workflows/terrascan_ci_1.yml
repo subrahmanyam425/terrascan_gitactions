@@ -12,7 +12,7 @@ jobs:
         uses: tenable/terrascan-action@v1
         with:
           iac_type: terraform
-          iac_dir: ${{ github.workspace }}/terraform
+          iac_dir: ${{ github.workspace }}
           sarif_upload: true  # Optionally upload results to Security tab
           # Optional additional flags:
           # - policy_path: "custom_policy.yaml"
@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: terrascan-report
-          path: terraform/terrascan-results.xml
+          path: terrascan-results.xml
