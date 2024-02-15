@@ -1,0 +1,53 @@
+# Chart.yaml
+apiVersion: v2
+name: nginx
+description: A simple Helm chart for deploying Nginx
+version: 1.0.0
+
+# values.yaml
+replicaCount: 1
+image: nginx
+imageTag: latest
+port: 80
+
+# templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: {{ .Values.image }}:{{ .Values.imageTag }}
+        ports:
+        - containerPort: {{ .Values.port }}
+        resources:
+          # Customize resource requests and limits here
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 1Gi
+
+# templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+  - port: {{ .Values.port }}
+    targetPort: {{ .Values.port }}
+    protocol: TCP
