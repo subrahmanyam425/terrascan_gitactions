@@ -14,7 +14,7 @@ jobs:
           iac_type: terraform
           iac_dir: ${{ github.workspace }}
           sarif_upload: true
-    continue-on-error: true
+    #continue-on-error: true
   Kubernetes:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +26,7 @@ jobs:
           iac_type: k8s
           iac_dir: ${{ github.workspace }}
           sarif_upload: true
-    continue-on-error: true
+    #continue-on-error: true
   Helm:
     runs-on: ubuntu-latest
     steps:
@@ -38,4 +38,4 @@ jobs:
           iac_type: helm
           iac_dir: ${{ github.workspace }}
           sarif_upload: true
-    continue-on-error: true
+    #continue-on-error: true
