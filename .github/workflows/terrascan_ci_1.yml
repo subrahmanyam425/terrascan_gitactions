@@ -1,4 +1,4 @@
-name: Terrascan Scan
+name: Terrascan testing
 on:
   push:
     branches: [ "main" ]
